@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dex
+spec:
+  secretName: dex-tls
+  isCA: false
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+  - "dex.auth.svc.cluster.local"
+  - "dex.auth"
+  - "dex"
+  issuerRef:
+    name: demo-ca-issuer

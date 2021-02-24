@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: demo-ca
+spec:
+  secretName: demo-ca-tls
+  commonName: demo.svc.cluster.local
+  usages:
+    - server auth
+    - client auth
+  isCA: true
+  issuerRef:
+    kind: ClusterIssuer
+    name: demo-selfsigned
